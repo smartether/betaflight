@@ -245,6 +245,9 @@ CC_NO_OPTIMISATION      :=
 TEMPORARY_FLAGS :=
 
 CFLAGS     += $(ARCH_FLAGS) \
+			  -D_SHARED_LIB	\
+			  -fPIC \
+			  -g	\
               $(addprefix -D,$(OPTIONS)) \
               $(addprefix -I,$(INCLUDE_DIRS)) \
               $(DEBUG_FLAGS) \
@@ -275,6 +278,7 @@ ASFLAGS     = $(ARCH_FLAGS) \
 
 ifeq ($(LD_FLAGS),)
 LD_FLAGS     = -lm \
+			  -shared \
               -nostartfiles \
               --specs=nano.specs \
               -lc \
@@ -282,14 +286,15 @@ LD_FLAGS     = -lm \
               $(ARCH_FLAGS) \
               $(LTO_FLAGS) \
               $(DEBUG_FLAGS) \
-              -static \
               -Wl,-gc-sections,-Map,$(TARGET_MAP) \
               -Wl,-L$(LINKER_DIR) \
               -Wl,--cref \
               -Wl,--no-wchar-size-warning \
               -Wl,--print-memory-usage \
-              -T$(LD_SCRIPT) \
                $(EXTRA_LD_FLAGS)
+
+#			-T$(LD_SCRIPT) \
+#               -static
 endif
 
 ###############################################################################
