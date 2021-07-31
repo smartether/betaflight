@@ -108,7 +108,7 @@ FEATURE_CUT_LEVEL_SUPPLIED := $(FEATURE_CUT_LEVEL)
 FEATURE_CUT_LEVEL =
 
 # The list of targets to build for 'pre-push'
-PRE_PUSH_TARGET_LIST ?= BCM_2835 STM32F405 STM32F411 STM32F7X2 STM32F745 NUCLEOH743 SITL STM32F4DISCOVERY_DEBUG test-representative
+PRE_PUSH_TARGET_LIST ?= BCM STM32F405 STM32F411 STM32F7X2 STM32F745 NUCLEOH743 SITL STM32F4DISCOVERY_DEBUG test-representative
 
 include $(ROOT)/make/targets.mk
 
@@ -651,11 +651,11 @@ targets-by-mcu:
 ## PI
 
 targets-zero:
-	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM_2835 TARGETS="$(VALID_TARGETS)"
+	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM TARGETS="$(VALID_TARGETS)"
 targets-pi2:
-	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM_2835 TARGETS="$(VALID_TARGETS)"
+	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM TARGETS="$(VALID_TARGETS)"
 targets-pi4:
-	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM_2835 TARGETS="$(VALID_TARGETS)"
+	$(V1) $(MAKE) -s targets-by-mcu MCU_TYPE=BCM TARGETS="$(VALID_TARGETS)"
 
 ## targets-f3        : make all F3 targets
 targets-f3:
