@@ -20,8 +20,6 @@
 
 #pragma once
 
-#define TARGET_FLASH_SIZE 4096
-
 #define TARGET_BOARD_IDENTIFIER "PI"
 #define USBD_PRODUCT_STRING "PI"
 #define USE_TARGET_CONFIG
