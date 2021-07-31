@@ -47,7 +47,7 @@ SIMULATOR_BUILD = yes
 else ifeq ($(TARGET),$(filter $(TARGET), $(F1_TARGETS)))
 TARGET_MCU := STM32F1
 
-else ifeq ($(TARGET), $(filter $(PI_TARGETS)))
+else ifeq ($(TARGET), $(filter $(TARGET), $(PI_TARGETS)))
 TARGET_MCU := BCM_2835
 
 else
