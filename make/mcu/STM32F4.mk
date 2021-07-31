@@ -153,15 +153,15 @@ ARCH_FLAGS      = -mthumb -mcpu=cortex-m4 -march=armv7e-m -mfloat-abi=hard -mfpu
 
 ifeq ($(TARGET),$(filter $(TARGET),$(F411_TARGETS)))
 DEVICE_FLAGS    = -DSTM32F411xE
-LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f411.ld
+#LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f411.ld
 STARTUP_SRC     = startup_stm32f411xe.s
 else ifeq ($(TARGET),$(filter $(TARGET),$(F405_TARGETS)))
 DEVICE_FLAGS    = -DSTM32F40_41xxx -DSTM32F405xx
-LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f405.ld
+#LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f405.ld
 STARTUP_SRC     = startup_stm32f40xx.s
 else ifeq ($(TARGET),$(filter $(TARGET),$(F446_TARGETS)))
 DEVICE_FLAGS    = -DSTM32F446xx
-LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f446.ld
+#LD_SCRIPT       = $(LINKER_DIR)/stm32_flash_f446.ld
 STARTUP_SRC     = startup_stm32f446xx.s
 else
 $(error Unknown MCU for F4 target)

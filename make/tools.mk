@@ -14,9 +14,12 @@
 ##############################
 
 # Set up ARM (STM32) SDK
-ARM_SDK_DIR ?= $(TOOLS_DIR)/gcc-arm-none-eabi-9-2019-q4-major
-# Checked below, Should match the output of $(shell arm-none-eabi-gcc -dumpversion)
-GCC_REQUIRED_VERSION ?= 9.2.1
+# ARM_SDK_DIR ?= $(TOOLS_DIR)/gcc-arm-linux-gnueabihf-9-2019-q4-major
+#ARM_SDK_DIR ?= $(TOOLS_DIR)/gcc-arm-linux-gnueabihf-9-2020-q2-update
+ARM_SDK_DIR ?= $(TOOLS_DIR)/gcc-arm-10.2-2020.11-x86_64-arm-none-linux-gnueabihf
+# Checked below, Should match the output of $(shell arm-none-linux-gnueabihf-gcc -dumpversion)
+#GCC_REQUIRED_VERSION ?= 9.2.1
+GCC_REQUIRED_VERSION ?= 10.2.1
 
 .PHONY: arm_sdk_version
 
@@ -26,7 +29,7 @@ arm_sdk_version:
 ## arm_sdk_install   : Install Arm SDK
 .PHONY: arm_sdk_install
 
-ARM_SDK_URL_BASE  := https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-none-eabi-9-2019-q4-major
+ARM_SDK_URL_BASE  := https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2019q4/RC2.1/gcc-arm-linux-gnueabihf-9-2019-q4-major
 
 # source: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
 ifdef LINUX
@@ -43,7 +46,7 @@ endif
 
 ARM_SDK_FILE := $(notdir $(ARM_SDK_URL))
 
-SDK_INSTALL_MARKER := $(ARM_SDK_DIR)/bin/arm-none-eabi-gcc-$(GCC_REQUIRED_VERSION)
+SDK_INSTALL_MARKER := $(ARM_SDK_DIR)/bin/arm-none-linux-gnueabihf-gcc-$(GCC_REQUIRED_VERSION)
 
 # order-only prereq on directory existance:
 arm_sdk_install: | $(TOOLS_DIR)
@@ -292,17 +295,17 @@ zip_clean:
 ##############################
 
 ifeq ($(shell [ -d "$(ARM_SDK_DIR)" ] && echo "exists"), exists)
-  ARM_SDK_PREFIX := $(ARM_SDK_DIR)/bin/arm-none-eabi-
+  ARM_SDK_PREFIX := $(ARM_SDK_DIR)/bin/arm-none-linux-gnueabihf-
 else ifeq (,$(findstring _install,$(MAKECMDGOALS)))
-  GCC_VERSION = $(shell arm-none-eabi-gcc -dumpversion)
+  GCC_VERSION = $(shell arm-none-linux-gnueabihf-gcc -dumpversion)
   ifeq ($(GCC_VERSION),)
-    $(error **ERROR** arm-none-eabi-gcc not in the PATH. Run 'make arm_sdk_install' to install automatically in the tools folder of this repo)
+    $(error **ERROR** arm-none-linux-gnueabihf-gcc not in the PATH. Run 'make arm_sdk_install' to install automatically in the tools folder of this repo)
   else ifneq ($(GCC_VERSION), $(GCC_REQUIRED_VERSION))
-    $(error **ERROR** your arm-none-eabi-gcc is '$(GCC_VERSION)', but '$(GCC_REQUIRED_VERSION)' is expected. Override with 'GCC_REQUIRED_VERSION' in make/local.mk or run 'make arm_sdk_install' to install the right version automatically in the tools folder of this repo)
+    $(error **ERROR** your arm-none-linux-gnueabihf-gcc is '$(GCC_VERSION)', but '$(GCC_REQUIRED_VERSION)' is expected. Override with 'GCC_REQUIRED_VERSION' in make/local.mk or run 'make arm_sdk_install' to install the right version automatically in the tools folder of this repo)
   endif
 
   # ARM tookchain is in the path, and the version is what's required.
-  ARM_SDK_PREFIX ?= arm-none-eabi-
+  ARM_SDK_PREFIX ?= arm-none-linux-gnueabihf-
 endif
 
 ifeq ($(shell [ -d "$(ZIP_DIR)" ] && echo "exists"), exists)

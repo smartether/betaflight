@@ -18,35 +18,26 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdbool.h>
 #include <stdint.h>
-
 #include "platform.h"
 
-#include "fc/init.h"
+#ifdef USE_TARGET_CONFIG
+#include "drivers/io.h"
+#include "pg/rx.h"
+#include "rx/rx.h"
+#include "io/serial.h"
 
-#include "scheduler/scheduler.h"
+#include "config_helper.h"
 
-void run(void);
+#define TELEMETRY_UART          SERIAL_PORT_USART6
 
-#ifndef _SHARED_LIB
-int main(void)
+static targetSerialPortFunction_t targetSerialPortFunction[] = {
+    { TELEMETRY_UART, FUNCTION_TELEMETRY_SMARTPORT },
+};
+
+void targetConfiguration(void)
 {
-    init();
-
-    run();
-
-    return 0;
+    targetSerialPortFunctionConfig(targetSerialPortFunction, ARRAYLEN(targetSerialPortFunction));
+    rxConfigMutable()->rssi_channel = 8;
 }
 #endif
-
-void FAST_CODE FAST_CODE_NOINLINE run(void)
-{
-    while (true) {
-        scheduler();
-        processLoopback();
-#ifdef SIMULATOR_BUILD
-        delayMicroseconds_real(50); // max rate 20kHz
-#endif
-    }
-}
