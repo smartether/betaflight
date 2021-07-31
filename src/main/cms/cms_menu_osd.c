@@ -276,11 +276,11 @@ static const char * osdTimerPrecisionNames[] = {"SCND", "HDTH"};
 const OSD_Entry menuTimersEntries[] =
 {
     {"--- TIMERS ---", OME_Label, NULL, NULL, 0},
-    {"1 SRC",          OME_TAB,   NULL, &(OSD_TAB_t){&timerSource[OSD_TIMER_1], OSD_TIMER_SRC_COUNT - 1, osdTimerSourceNames}, 0 },
-    {"1 PREC",         OME_TAB,   NULL, &(OSD_TAB_t){&timerPrecision[OSD_TIMER_1], OSD_TIMER_PREC_COUNT - 1, osdTimerPrecisionNames}, 0},
+    {"1 SRC",          OME_TAB,   NULL, &(OSD_TAB_t){&timerSource[OSD_TIMER_1], OSD_TIMER_SRC_COUNT - 1, (uint8_t*)osdTimerSourceNames}, 0 },
+    {"1 PREC",         OME_TAB,   NULL, &(OSD_TAB_t){&timerPrecision[OSD_TIMER_1], OSD_TIMER_PREC_COUNT - 1, (uint8_t*)osdTimerPrecisionNames}, 0},
     {"1 ALARM",        OME_UINT8, NULL, &(OSD_UINT8_t){&timerAlarm[OSD_TIMER_1], 0, 0xFF, 1}, 0},
-    {"2 SRC",          OME_TAB,   NULL, &(OSD_TAB_t){&timerSource[OSD_TIMER_2], OSD_TIMER_SRC_COUNT - 1, osdTimerSourceNames}, 0 },
-    {"2 PREC",         OME_TAB,   NULL, &(OSD_TAB_t){&timerPrecision[OSD_TIMER_2], OSD_TIMER_PREC_COUNT - 1, osdTimerPrecisionNames}, 0},
+    {"2 SRC",          OME_TAB,   NULL, &(OSD_TAB_t){&timerSource[OSD_TIMER_2], OSD_TIMER_SRC_COUNT - 1, (uint8_t*)osdTimerSourceNames}, 0 },
+    {"2 PREC",         OME_TAB,   NULL, &(OSD_TAB_t){&timerPrecision[OSD_TIMER_2], OSD_TIMER_PREC_COUNT - 1, (uint8_t*)osdTimerPrecisionNames}, 0},
     {"2 ALARM",        OME_UINT8, NULL, &(OSD_UINT8_t){&timerAlarm[OSD_TIMER_2], 0, 0xFF, 1}, 0},
     {"BACK", OME_Back, NULL, NULL, 0},
     {NULL, OME_END, NULL, NULL, 0}
