@@ -86,7 +86,7 @@ http://resnet.uoregon.edu/~gurney_j/jmpc/bitwise.html
                          >>16*((v)/2L>>31 > 0)))
 #define LOG2(v) LOG2_64BIT(v)
 
-#if 0
+#ifdef _ZERO_
 // ISO C version, but no type checking
 #define container_of(ptr, type, member) \
                       ((type *) ((char *)(ptr) - offsetof(type, member)))

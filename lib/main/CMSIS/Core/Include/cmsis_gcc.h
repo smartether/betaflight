@@ -2046,7 +2046,7 @@ __STATIC_FORCEINLINE  int32_t __QSUB( int32_t op1,  int32_t op2)
   return(result);
 }
 
-#if 0
+#ifdef _ZERO_
 #define __PKHBT(ARG1,ARG2,ARG3) \
 ({                          \
   uint32_t __RES, __ARG1 = (ARG1), __ARG2 = (ARG2); \

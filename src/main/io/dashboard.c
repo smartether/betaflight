@@ -174,7 +174,7 @@ static void drawHorizonalPercentageBar(uint8_t width,uint8_t percent)
         LCDprint(154); // empty
 }
 
-#if 0
+#ifdef _ZERO_
 static void fillScreenWithCharacters(void)
 {
     for (uint8_t row = 0; row < SCREEN_CHARACTER_ROW_COUNT; row++) {

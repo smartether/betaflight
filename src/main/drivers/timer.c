@@ -807,7 +807,7 @@ void timerInit(void)
 // TODO - Work in progress - initialization routine must be modified/verified to start correctly without timers
 void timerStart(void)
 {
-#if 0
+#ifdef _ZERO_
     for (unsigned timer = 0; timer < USED_TIMER_COUNT; timer++) {
         int priority = -1;
         int irq = -1;

@@ -210,7 +210,7 @@ static void saAutobaud(void)
         return;
     }
 
-#if 0
+#ifdef _ZERO_
     dprintf(("autobaud: %d rcvd %d/%d (%d)\r\n",
              sa_smartbaud, saStat.pktrcvd, saStat.pktsent, ((saStat.pktrcvd * 100) / saStat.pktsent)));
 #endif
@@ -654,7 +654,7 @@ void saSetPitFreq(uint16_t freq)
     saSetFreq(freq | SA_FREQ_SETPIT);
 }
 
-#if 0
+#ifdef _ZERO_
 static void saGetPitFreq(void)
 {
     saDoDevSetFreq(SA_FREQ_GETPIT);

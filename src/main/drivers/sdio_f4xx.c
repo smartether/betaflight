@@ -1467,7 +1467,7 @@ static SD_Error_t SD_PowerON(void)
   * @brief  Turns the SDIO output signals off.
   * @retval SD Card error state
   */
-#if 0
+#ifdef _ZERO_
 static void SD_PowerOFF(void)
 {
    // Set Power State to OFF
