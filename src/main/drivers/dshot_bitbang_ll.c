@@ -228,7 +228,7 @@ void bbDMAPreconfigure(bbPort_t *bbPort, uint8_t direction)
     dmainit->PeriphOrM2MSrcIncMode = LL_DMA_PERIPH_NOINCREMENT;
     dmainit->MemoryOrM2MDstIncMode = LL_DMA_MEMORY_INCREMENT;
     dmainit->FIFOMode = LL_DMA_FIFOMODE_ENABLE ;
-#ifdef _ZERO_
+#if 0
     dmainit->DMA_FIFOThreshold = DMA_FIFOThreshold_1QuarterFull ;
     dmainit->DMA_MemoryBurst = DMA_MemoryBurst_Single ;
     dmainit->DMA_PeripheralBurst = DMA_PeripheralBurst_Single;

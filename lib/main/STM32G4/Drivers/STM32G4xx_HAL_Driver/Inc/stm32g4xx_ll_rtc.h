@@ -3858,7 +3858,7 @@ __STATIC_INLINE uint32_t LL_RTC_IsActiveFlag_ITAMP8(RTC_TypeDef *RTCx)
 }
 #endif /* RTC_TAMP_INT_8_SUPPORT */
 
-#ifdef _ZERO_
+#if 0
 /**
   * @brief  Get internal tamper 9 detection flag.
   * @rmtoll TAMP_SR          ITAMP9F        LL_RTC_IsActiveFlag_ITAMP9
@@ -4737,7 +4737,7 @@ __STATIC_INLINE void LL_RTC_DisableIT_TAMP8(RTC_TypeDef *RTCx)
 }
 #endif /* RTC_TAMP_NB */
 
-#ifdef _ZERO_
+#if 0
 /**
   * @brief  Enable tamper 92 interrupt.
   * @rmtoll TAMP_IER           TAMP9IE          LL_RTC_EnableIT_TAMP9
@@ -5120,7 +5120,7 @@ __STATIC_INLINE void LL_RTC_DisableIT_ITAMP8(RTC_TypeDef *RTCx)
 }
 #endif /* (RTC_TAMP_INT_8_SUPPORT)*/
 
-#ifdef _ZERO_
+#if 0
 /**
   * @brief  Enable internal tamper 9 interrupt.
   * @rmtoll TAMP_IER           ITAMP7IE          LL_RTC_EnableIT_ITAMP9

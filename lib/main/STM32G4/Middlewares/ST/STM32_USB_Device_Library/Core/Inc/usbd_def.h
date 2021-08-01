@@ -294,7 +294,7 @@ typedef struct _USBD_HandleTypeDef
 #endif /* __GNUC__ */
 
 
-#ifdef _ZERO_
+#if 0
 /* In HS mode and when the DMA is used, all variables and data structures dealing
    with the DMA during the transaction process should be 4-bytes aligned */
 

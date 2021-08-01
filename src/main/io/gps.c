@@ -763,7 +763,7 @@ static void gpsNewData(uint16_t c)
 
     GPS_update ^= GPS_DIRECT_TICK;
 
-#ifdef _ZERO_
+#if 0
     debug[3] = GPS_update;
 #endif
 

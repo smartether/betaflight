@@ -8776,7 +8776,7 @@ class GTEST_API_ KilledBySignal {
 //
 // Here is how you use value-parameterized tests:
 
-#ifdef _ZERO_
+#if 0
 
 // To write value-parameterized tests, first you should define a fixture
 // class. It is usually derived from testing::TestWithParam<T> (see below for
@@ -17260,7 +17260,7 @@ class GTEST_API_ HasNewFatalFailureHelper
 // list.  You must know which types you want to test with when writing
 // typed tests. Here's how you do it:
 
-#ifdef _ZERO_
+#if 0
 
 // First, define a fixture class template.  It should be parameterized
 // by a type.  Remember to derive it from testing::Test.
@@ -17320,7 +17320,7 @@ TYPED_TEST(FooTest, HasPropertyA) { ... }
 // that it conforms to the requirements, without having to write
 // similar tests repeatedly.  Here's an example:
 
-#ifdef _ZERO_
+#if 0
 
 // First, define a fixture class template.  It should be parameterized
 // by a type.  Remember to derive it from testing::Test.

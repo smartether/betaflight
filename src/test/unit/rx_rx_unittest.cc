@@ -61,7 +61,7 @@ typedef struct testData_s {
 
 static testData_t testData;
 
-#ifdef _ZERO_ //!! valid pulse handling has changed so these test now test removed functions
+#if 0 //!! valid pulse handling has changed so these test now test removed functions
 TEST(RxTest, TestValidFlightChannels)
 {
     // given

@@ -130,7 +130,7 @@ const adcTagMap_t adcTagMap[] = {
     { DEFIO_TAG_E__PA6,  ADC_DEVICES_12,  ADC_CHANNEL_3,   3 },
     { DEFIO_TAG_E__PA7,  ADC_DEVICES_12,  ADC_CHANNEL_7,   7 },
 
-#ifdef _ZERO_
+#if 0
     // Inputs available for packages larger than LQFP144
     { DEFIO_TAG_E__PF3,  ADC_DEVICES_3,   ADC_CHANNEL_5,   5 },
     { DEFIO_TAG_E__PF4,  ADC_DEVICES_3,   ADC_CHANNEL_9,   9 },

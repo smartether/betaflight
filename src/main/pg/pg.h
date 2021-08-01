@@ -170,7 +170,7 @@ extern const uint8_t __pg_resetdata_end[];
     PG_REGISTER_ARRAY_I(_type, _length, _name, _pgn, _version, .reset = {.fn = (pgResetFunc*)&pgResetFn_ ## _name}) \
     /**/
 
-#ifdef _ZERO_
+#if 0
 // ARRAY reset mechanism is not implemented yet, only few places in code would benefit from it - See pgResetInstance
 #define PG_REGISTER_ARRAY_WITH_RESET_TEMPLATE(_type, _length, _name, _pgn, _version) \
     extern const _type pgResetTemplate_ ## _name;                       \
