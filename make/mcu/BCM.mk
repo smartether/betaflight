@@ -12,36 +12,36 @@ $(error No OPBL linker script specified for $(TARGET`))
 endif
 endif
 
-# #CMSIS
-# ifeq ($(PERIPH_DRIVER), HAL)
-# CMSIS_DIR      := $(ROOT)/lib/main/STM32F4/Drivers/CMSIS
-# STDPERIPH_DIR   = $(ROOT)/lib/main/STM32F4/Drivers/STM32F4xx_HAL_Driver
-# STDPERIPH_SRC   = $(notdir $(wildcard $(STDPERIPH_DIR)/Src/*.c))
-# EXCLUDES        =
-# else
-# CMSIS_DIR      := $(ROOT)/lib/main/CMSIS
-# STDPERIPH_DIR   = $(ROOT)/lib/main/STM32F4/Drivers/STM32F4xx_StdPeriph_Driver
-# STDPERIPH_SRC   = $(notdir $(wildcard $(STDPERIPH_DIR)/src/*.c))
-# EXCLUDES        = stm32f4xx_crc.c \
-#                   stm32f4xx_can.c \
-#                   stm32f4xx_fmc.c \
-#                   stm32f4xx_sai.c \
-#                   stm32f4xx_cec.c \
-#                   stm32f4xx_dsi.c \
-#                   stm32f4xx_flash_ramfunc.c \
-#                   stm32f4xx_fmpi2c.c \
-#                   stm32f4xx_lptim.c \
-#                   stm32f4xx_qspi.c \
-#                   stm32f4xx_spdifrx.c \
-#                   stm32f4xx_cryp.c \
-#                   stm32f4xx_cryp_aes.c \
-#                   stm32f4xx_hash_md5.c \
-#                   stm32f4xx_cryp_des.c \
-#                   stm32f4xx_hash.c \
-#                   stm32f4xx_dbgmcu.c \
-#                   stm32f4xx_cryp_tdes.c \
-#                   stm32f4xx_hash_sha1.c
-# endif
+#CMSIS
+ifeq ($(PERIPH_DRIVER), HAL)
+CMSIS_DIR      := $(ROOT)/lib/main/STM32F4/Drivers/CMSIS
+STDPERIPH_DIR   = $(ROOT)/lib/main/STM32F4/Drivers/STM32F4xx_HAL_Driver
+STDPERIPH_SRC   = $(notdir $(wildcard $(STDPERIPH_DIR)/Src/*.c))
+EXCLUDES        =
+else
+CMSIS_DIR      := $(ROOT)/lib/main/CMSIS
+STDPERIPH_DIR   = $(ROOT)/lib/main/STM32F4/Drivers/STM32F4xx_StdPeriph_Driver
+STDPERIPH_SRC   = $(notdir $(wildcard $(STDPERIPH_DIR)/src/*.c))
+EXCLUDES        = stm32f4xx_crc.c \
+                  stm32f4xx_can.c \
+                  stm32f4xx_fmc.c \
+                  stm32f4xx_sai.c \
+                  stm32f4xx_cec.c \
+                  stm32f4xx_dsi.c \
+                  stm32f4xx_flash_ramfunc.c \
+                  stm32f4xx_fmpi2c.c \
+                  stm32f4xx_lptim.c \
+                  stm32f4xx_qspi.c \
+                  stm32f4xx_spdifrx.c \
+                  stm32f4xx_cryp.c \
+                  stm32f4xx_cryp_aes.c \
+                  stm32f4xx_hash_md5.c \
+                  stm32f4xx_cryp_des.c \
+                  stm32f4xx_hash.c \
+                  stm32f4xx_dbgmcu.c \
+                  stm32f4xx_cryp_tdes.c \
+                  stm32f4xx_hash_sha1.c
+endif
 
 ifeq ($(TARGET),$(filter $(TARGET), $(ZERO_TARGETS)))
 # EXCLUDES        += stm32f4xx_fsmc.c
@@ -107,34 +107,34 @@ endif
 #                         $(USBMSC_SRC)
 # endif
 
-# #CMSIS 
-# VPATH           := $(VPATH):$(CMSIS_DIR)/Core/Include:$(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx
+#CMSIS 
+VPATH           := $(VPATH):$(CMSIS_DIR)/Core/Include:$(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx
 
-# ifeq ($(PERIPH_DRIVER), HAL)
-# CMSIS_SRC       :=
-# INCLUDE_DIRS    := $(INCLUDE_DIRS) \
-#                    $(STDPERIPH_DIR)/Inc \
-#                    $(USBCORE_DIR)/Inc \
-#                    $(USBCDC_DIR)/Inc \
-#                    $(CMSIS_DIR)/Include \
-#                    $(CMSIS_DIR)/Device/ST/STM32F4xx/Include \
-#                    $(ROOT)/src/main/vcp_hal
-# else
-# CMSIS_SRC       := $(notdir $(wildcard $(CMSIS_DIR)/CoreSupport/*.c \
-#                    $(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx/*.c))
-# INCLUDE_DIRS    := $(INCLUDE_DIRS) \
-#                    $(STDPERIPH_DIR)/inc \
-#                    $(USBOTG_DIR)/inc \
-#                    $(USBCORE_DIR)/inc \
-#                    $(USBCDC_DIR)/inc \
-#                    $(USBHID_DIR)/inc \
-#                    $(USBWRAPPER_DIR)/inc \
-#                    $(USBMSC_DIR)/inc \
-#                    $(USBFS_DIR)/inc \
-#                    $(CMSIS_DIR)/Core/Include \
-#                    $(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx \
-#                    $(ROOT)/src/main/vcpf4
-# endif
+ifeq ($(PERIPH_DRIVER), HAL)
+CMSIS_SRC       :=
+INCLUDE_DIRS    := $(INCLUDE_DIRS) \
+                   $(STDPERIPH_DIR)/Inc \
+                   $(USBCORE_DIR)/Inc \
+                   $(USBCDC_DIR)/Inc \
+                   $(CMSIS_DIR)/Include \
+                   $(CMSIS_DIR)/Device/ST/STM32F4xx/Include \
+                   $(ROOT)/src/main/vcp_hal
+else
+CMSIS_SRC       := $(notdir $(wildcard $(CMSIS_DIR)/CoreSupport/*.c \
+                   $(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx/*.c))
+INCLUDE_DIRS    := $(INCLUDE_DIRS) \
+                   $(STDPERIPH_DIR)/inc \
+                   $(USBOTG_DIR)/inc \
+                   $(USBCORE_DIR)/inc \
+                   $(USBCDC_DIR)/inc \
+                   $(USBHID_DIR)/inc \
+                   $(USBWRAPPER_DIR)/inc \
+                   $(USBMSC_DIR)/inc \
+                   $(USBFS_DIR)/inc \
+                   $(CMSIS_DIR)/Core/Include \
+                   $(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx \
+                   $(ROOT)/src/main/vcpf4
+endif
 
 # ifneq ($(filter SDCARD_SPI,$(FEATURES)),)
 # INCLUDE_DIRS    := $(INCLUDE_DIRS) \
