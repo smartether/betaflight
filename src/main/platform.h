@@ -118,6 +118,8 @@
 
 #elif defined(BCM)
 
+#include "core_cm4.h"
+
 // Chip Unique ID on F103
 #define U_ID_0 (*(uint32_t*)0x1FFFF7E8)
 #define U_ID_1 (*(uint32_t*)0x1FFFF7EC)
