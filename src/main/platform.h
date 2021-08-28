@@ -117,12 +117,14 @@
 
 
 #elif defined(BCM)
-
+#include "bcm2835.h"
 // Chip Unique ID on F103
 #define U_ID_0 (*(uint32_t*)0x1FFFF7E8)
 #define U_ID_1 (*(uint32_t*)0x1FFFF7EC)
 #define U_ID_2 (*(uint32_t*)0x1FFFF7F0)
-
+#ifndef BCM_2835
+#define BCM_2835
+#endif
 #ifndef PI_ZERO
 #define PI_ZERO
 #endif

@@ -94,8 +94,9 @@ export RM := rm
 # import macros that are OS specific
 include $(ROOT)/make/$(OSFAMILY).mk
 
+
 # include the tools makefile
-include $(ROOT)/make/tools.mk
+include $(ROOT)/make/tools_mac.mk
 
 # default xtal value for F4 targets
 HSE_VALUE       ?= 8000000

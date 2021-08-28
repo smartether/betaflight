@@ -22,7 +22,7 @@
 #include "platform.h"
 
 #ifdef USE_TARGET_CONFIG
-#include "drivers/io.h"
+// #include "drivers/io.h"
 #include "pg/rx.h"
 #include "rx/rx.h"
 #include "io/serial.h"

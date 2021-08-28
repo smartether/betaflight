@@ -2,7 +2,7 @@
 
 targets=("PUBLISHMETA=True" \
      "TARGET=PI"
-#     "TARGET=FRSKYF4" \
+#     "TARGET=FRSKYF4" 
      )
 #    "TARGET=CC3D" \
 #    "TARGET=CC3D_OPBL" \

@@ -94,6 +94,8 @@
 # define IOCFG_IPU            0
 # define IOCFG_IN_FLOATING    0
 
+#elif defined(BCM)
+
 #else
 # warning "Unknown TARGET"
 #endif
