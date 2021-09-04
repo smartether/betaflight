@@ -116,7 +116,7 @@ endif
 #CMSIS
 #VPATH           := $(VPATH):$(CMSIS_DIR)/Core/Include:$(ROOT)/lib/main/STM32F4/Drivers/CMSIS/Device/ST/STM32F4xx
 VPATH           := $(VPATH):$(CMSIS_DIR)/src
-CMSIS_SRC       := $(CMSIS_DIR)/src
+#CMSIS_SRC       := $(CMSIS_DIR)/src
 
 INCLUDE_DIRS    := $(INCLUDE_DIRS)  \
                     $(ROOT)/lib/main/BCM_2835/sysinclude/usr/include    \

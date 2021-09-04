@@ -129,6 +129,17 @@
 #define PI_ZERO
 #endif
 
+#ifdef __HAVE_FLOAT32
+#undef __HAVE_FLOAT32
+#endif
+#ifdef __HAVE_FLOAT64
+#undef __HAVE_FLOAT64
+#endif
+
+#ifdef __HAVE_FLOAT32X
+#undef __HAVE_FLOAT32X
+#endif
+
 #elif defined(SIMULATOR_BUILD)
 
 // Nop
